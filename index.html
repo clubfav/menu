@@ -1,4 +1,267 @@
-="item-price">95 грн.</div></li>
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorit Billiard Club - Меню</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-green: #1a2e22; 
+            --wood-dark: #2c1b12; 
+            --gold-bright: #d4af37; 
+            --gold-soft: #b59410; 
+            --ivory: #f0ede5; 
+            --text-muted: #a0998b; 
+            --font-main: 'Roboto', sans-serif;
+            --font-title: 'Playfair Display', serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--deep-green);
+            color: var(--ivory);
+            font-family: var(--font-main);
+        }
+
+        header {
+            text-align: center;
+            padding: 25px 10px;
+            background-color: var(--wood-dark);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--gold-soft);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        header h1 {
+            font-family: var(--font-title);
+            font-size: 1.8em;
+            color: var(--gold-bright);
+            margin: 0 0 15px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            line-height: 1.2;
+        }
+
+        .nav-container {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 5px;
+            scrollbar-width: none;
+            justify-content: flex-start;
+        }
+        .nav-container::-webkit-scrollbar { display: none; }
+
+        .nav-btn {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--gold-soft);
+            color: var(--ivory);
+            padding: 10px 20px;
+            border-radius: 4px;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-btn.active {
+            background: var(--gold-soft);
+            color: var(--wood-dark);
+            font-weight: 700;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            background: radial-gradient(circle at center, #243f2f 0%, #1a2e22 100%);
+        }
+
+        .menu-section { display: none; }
+        .menu-section.active { display: block; animation: slideIn 0.5s ease-out; }
+
+        @keyframes slideIn { 
+            from { opacity: 0; transform: translateY(20px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+
+        .category-title {
+            font-family: var(--font-title);
+            font-size: 1.6em;
+            color: var(--gold-bright);
+            border-bottom: 1px solid var(--gold-soft);
+            margin: 30px 0 15px;
+            padding-bottom: 8px;
+            text-align: center;
+        }
+
+        .menu-list { list-style: none; padding: 0; margin: 0; }
+        
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(181, 148, 16, 0.2);
+        }
+
+        .item-info { flex: 1; }
+        .item-name { font-weight: 700; font-size: 1.05em; color: var(--ivory); }
+        .item-description { font-weight: 300; font-size: 0.85em; color: var(--text-muted); margin-top: 4px; }
+        
+        .item-price { 
+            font-weight: 700; 
+            color: var(--gold-bright); 
+            white-space: nowrap; 
+            margin-left: 15px;
+            font-size: 1em;
+            background: rgba(0,0,0,0.2);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        footer { 
+            text-align: center; 
+            padding: 40px 20px; 
+            color: var(--text-muted); 
+            background-color: var(--wood-dark);
+            border-top: 1px solid var(--gold-soft);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Favorit Billiard Club</h1>
+        <div class="nav-container">
+            <button class="nav-btn active" onclick="showTab('kitchen')">Кухня</button>
+            <button class="nav-btn" onclick="showTab('bar')">Бар</button>
+            <button class="nav-btn" onclick="showTab('cocktails')">Коктейлі</button>
+            <button class="nav-btn" onclick="showTab('drinks')">Напої</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="kitchen" class="menu-section active">
+            <h2 class="category-title">Гарячі закуски</h2>
+            <ul class="menu-list">
+                <li class="menu-item"><div class="item-info"><div class="item-name">Крильця гриль</div><div class="item-description">250 г (3 шт)</div></div><div class="item-price">210 грн.</div></li>
+                <li class="menu-item"><div class="item-info"><div class="item-name">Ковбаски гриль (свино-яловичина)</div><div class="item-description">300 г</div></div><div class="item-price">350 грн.</div></li>
+                <li class="menu-item"><div class="item-info"><div class="item-name">Ковбаски гриль (курячі)</div><div class="item-description">300 г</div></div><div class="item-price">300 грн.</div></li>
+                <li class="menu-item"><div class="item-info"><div class="item-name">Люля Кебаб (з курки)</div><div class="item-description">150 г (2 шт)</div></div><div class="item-price">250 грн.</div></li>
+                <li class="menu-item"><div class="item-info"><div class="item-name">Люля Кебаб (з баранини)</div><div class="item-description">150 г (2 шт)</div></div><div class="item-price">300 грн.</div></li>
+                <li class="menu-item"><div class="item-info"><div class="item-name">Креветка темпура</div><div class="item-description">130 г (5 шт)</div></div><div class="item-price">320 грн.</div></li>
+                <li class="menu-item"><div class="item-info"><div class="item-name">Картопля фрі</div><div class="item-description">100 г</div></div><div class="item-price">90 грн.</div></li>
+                <li class="menu-item"><div class="item-info"><div class="item-name">Нагетси</div><div class="item-description">250 г (8 шт)</div></div><div class="item-price">150 грн.</div></li>
+                <li class="menu-item"><div class="item-info"><div class="item-name">Бульйон курячий</div><div class="item-description">300 г</div></div><div class="item-price">150 грн.</div></li>
+                <li class="menu-item"><div class="item-info"><div class="item-name">Пельмені</div><div class="item-description">250 г</div></div><div class="item-price">190 грн.</div></li>
+            </ul>
+
+            <h2 class="category-title">Холодні закуски</h2>
+            <ul class="menu-list">
+                <li class="menu-item"><div class="item-info"><div class="item-name">Тарілка до пива</div><div class="item-description">ковбаски, горішки, сухарики, сулугуні, рибка, кальмар (250 г)</div></div><div class="item-price">260 грн.</div></li>
+                <li class="menu-item"><div class="item-info"><div class="item-name">Сирна тарілка</div><div class="item-description">дор-блю, мааздамер, камамбер, мед, горіхи (150 г)</div></div><div class="item-price">260 грн.</div></li>
+                <li class="menu-item"><div class="item-info"><div class="item-name">Рибна тарілка</div><div class="item-description">200 г</div></div><div class="item-price">320 грн.</div></li>
+                <li class="menu-item"><div class="item-info"><div class="item-name">М’ясна тарілка</div><div class="item-description">200 г</div></div><div class="item-price">280 грн.</div></li>
+                <li class="menu-item"><div class="item-info"><div class="item-name">Овочева тарілка</div><div class="item-description">200 г</div></div><div class="item-price">220 грн.</div></li>
+                <li class="menu-item"><div class="item-info"><div class="item-name">Оселедець по домашньому</div><div class="item-description">80 г</div></div><div class="item-price">150 грн.</div></li>
+                <li class="menu-item"><div class="item-info"><div class="item-name">Канапки з лососем та вершковим сиром</div><div class="item-description">250 г</div></div><div class="item-price">350 грн.</div></li>
+                <li class="menu-item"><div class="item-info"><div class="item-name">Цаца до пива</div><div class="item-description">200 г</div></div><div class="item-price">260 грн.</div></li>
+            </ul>
+        </section>
+
+        <section id="bar" class="menu-section">
+            <h2 class="category-title">Міцний алкоголь (50 / 100 мл)</h2>
+            <ul class="menu-list">
+                <li class="menu-item"><div class="item-name">Самбука</div><div class="item-price">150 / 300 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Абсент</div><div class="item-price">190 / 380 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Джин</div><div class="item-price">60 / 120 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Ром Бакарді (білий)</div><div class="item-price">125 / 250 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Ром Бакарді (темний)</div><div class="item-price">80 / 160 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Коньяк Арарат 3*</div><div class="item-price">115 / 230 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Коньяк Hennessy VS4</div><div class="item-price">395 / 790 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Віскі Jameson</div><div class="item-price">140 / 280 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Віскі Ballantine’s</div><div class="item-price">115 / 230 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Віскі Jack Daniel’s</div><div class="item-price">185 / 370 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Горілка Absolut</div><div class="item-price">75 / 150 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Горілка Фінляндія</div><div class="item-price">65 / 130 грн.</div></li>
+            </ul>
+
+            <h2 class="category-title">Лікери (50 / 100 мл)</h2>
+            <ul class="menu-list">
+                <li class="menu-item"><div class="item-name">Triple sec</div><div class="item-price">85 / 170 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Coffee</div><div class="item-price">190 / 380 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Baileys</div><div class="item-price">165 / 330 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Sheridan's</div><div class="item-price">225 / 450 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Pina Colada</div><div class="item-price">245 / 490 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Malibu</div><div class="item-price">125 / 250 грн.</div></li>
+            </ul>
+
+            <h2 class="category-title">Вино (100 / 200 мл)</h2>
+            <ul class="menu-list">
+                <li class="menu-item"><div class="item-info"><div class="item-name">Кіндзмараулі</div><div class="item-description">червоне напівсолодке</div></div><div class="item-price">150 / 300 грн.</div></li>
+                <li class="menu-item"><div class="item-info"><div class="item-name">Цинандалі</div><div class="item-description">біле солодке</div></div><div class="item-price">85 / 170 грн.</div></li>
+                <li class="menu-item"><div class="item-info"><div class="item-name">Алазанська долина</div><div class="item-description">червоне напівсолодке</div></div><div class="item-price">85 / 170 грн.</div></li>
+                <li class="menu-item"><div class="item-info"><div class="item-name">Алазанська долина</div><div class="item-description">біле напівсолодке</div></div><div class="item-price">80 / 160 грн.</div></li>
+                <li class="menu-item"><div class="item-info"><div class="item-name">Сапераві</div><div class="item-description">червоне сухе</div></div><div class="item-price">90 / 180 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Вермут (сухий / н-солодкий)</div><div class="item-price">110 / 220 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Апероль</div><div class="item-price">170 / 340 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Мартіні (біле сухе)</div><div class="item-price">210 / 420 грн.</div></li>
+            </ul>
+
+            <h2 class="category-title">Шампанське (0,75 л)</h2>
+            <ul class="menu-list">
+                <li class="menu-item"><div class="item-name">Асті Чинзано</div><div class="item-price">1300 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Шампанське Просеко</div><div class="item-price">1500 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Мартіні Асті</div><div class="item-price">1200 грн.</div></li>
+            </ul>
+
+            <h2 class="category-title">Пиво</h2>
+            <ul class="menu-list">
+                <li class="menu-item"><div class="item-name">Хугарден White (0,5 л)</div><div class="item-price">165 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Стела світле (0,5 л)</div><div class="item-price">110 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Стела Артуа (0,33 л, ж/б)</div><div class="item-price">90 грн.</div></li>
+            </ul>
+        </section>
+
+        <section id="cocktails" class="menu-section">
+            <h2 class="category-title">Алкогольні коктейлі</h2>
+            <ul class="menu-list">
+                <li class="menu-item"><div class="item-name">Мохіто</div><div class="item-price">250 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Піна Колада</div><div class="item-price">255 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Текіла Санрайз</div><div class="item-price">235 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Космополітен</div><div class="item-price">230 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Самбука (класична)</div><div class="item-price">205 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Енергія</div><div class="item-price">255 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Дайкірі</div><div class="item-price">205 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Маргарита</div><div class="item-price">240 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Мартіні Драй</div><div class="item-price">285 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Куда Лібре</div><div class="item-price">275 грн.</div></li>
+            </ul>
+            <h2 class="category-title">Шоти</h2>
+            <ul class="menu-list">
+                <li class="menu-item"><div class="item-name">Б-52</div><div class="item-price">225 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Хіросіма</div><div class="item-price">235 грн.</div></li>
+            </ul>
+            <h2 class="category-title">Безалкогольні коктейлі</h2>
+            <ul class="menu-list">
+                <li class="menu-item"><div class="item-name">Мохіто б/а</div><div class="item-price">110 грн.</div></li>
+            </ul>
+        </section>
+
+        <section id="drinks" class="menu-section">
+            <h2 class="category-title">Кава та Чай</h2>
+            <ul class="menu-list">
+                <li class="menu-item"><div class="item-name">Еспресо</div><div class="item-price">55 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Американо</div><div class="item-price">55 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Лате / Лате Макіато</div><div class="item-price">95 грн.</div></li>
                 <li class="menu-item"><div class="item-name">Капучино</div><div class="item-price">85 грн.</div></li>
                 <li class="menu-item"><div class="item-name">Допіо</div><div class="item-price">110 грн.</div></li>
                 <li class="menu-item"><div class="item-info"><div class="item-name">Сиропи</div><div class="item-description">до кави</div></div><div class="item-price">15 грн.</div></li>
