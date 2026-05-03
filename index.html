@@ -36,15 +36,28 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
-        header h1 {
+        /* Оновлений стиль заголовка */
+        .brand-name {
             font-family: var(--font-title);
-            font-size: 1.8em;
+            font-size: 2.8em; /* Великий шрифт для назви */
             color: var(--gold-bright);
-            margin: 0 0 15px 0;
+            margin: 0;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 5px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            line-height: 1.2;
+            display: block;
+            line-height: 1;
+        }
+
+        .brand-sub {
+            font-family: var(--font-main);
+            font-size: 0.9em; /* Менший шрифт для опису */
+            color: var(--gold-soft);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 5px 0 20px 0;
+            display: block;
+            font-weight: 300;
         }
 
         .nav-container {
@@ -139,7 +152,9 @@
 <body>
 
     <header>
-        <h1>Favorit Billiard Club</h1>
+        <span class="brand-name">Фаворит</span>
+        <span class="brand-sub">більярдний клуб-кафе</span>
+        
         <div class="nav-container">
             <button class="nav-btn active" onclick="showTab('kitchen')">Кухня</button>
             <button class="nav-btn" onclick="showTab('bar')">Бар</button>
@@ -149,17 +164,18 @@
     </header>
 
     <main>
+        <!-- Секції меню залишаються без змін -->
         <section id="kitchen" class="menu-section active">
             <h2 class="category-title">Гарячі закуски</h2>
             <ul class="menu-list">
-                <li class="menu-item"><div class="item-info"><div class="item-name">Крильця гриль</div><div class="item-description">250 г (3 шт)</div></div><div class="item-price">210 грн.</div></li>
+                <li class="menu-item"><div class="item-info"><div class="item-name">Крильця гриль</div><div class="item-description">250 г </div></div><div class="item-price">210 грн.</div></li>
                 <li class="menu-item"><div class="item-info"><div class="item-name">Ковбаски гриль (свино-яловичина)</div><div class="item-description">300 г</div></div><div class="item-price">350 грн.</div></li>
                 <li class="menu-item"><div class="item-info"><div class="item-name">Ковбаски гриль (курячі)</div><div class="item-description">300 г</div></div><div class="item-price">300 грн.</div></li>
-                <li class="menu-item"><div class="item-info"><div class="item-name">Люля Кебаб (з курки)</div><div class="item-description">150 г (2 шт)</div></div><div class="item-price">250 грн.</div></li>
-                <li class="menu-item"><div class="item-info"><div class="item-name">Люля Кебаб (з баранини)</div><div class="item-description">150 г (2 шт)</div></div><div class="item-price">300 грн.</div></li>
-                <li class="menu-item"><div class="item-info"><div class="item-name">Креветка темпура</div><div class="item-description">130 г (5 шт)</div></div><div class="item-price">320 грн.</div></li>
+                <li class="menu-item"><div class="item-info"><div class="item-name">Люля Кебаб (з курки)</div><div class="item-description">150 г </div></div><div class="item-price">250 грн.</div></li>
+                <li class="menu-item"><div class="item-info"><div class="item-name">Люля Кебаб (з баранини)</div><div class="item-description">150 г </div></div><div class="item-price">300 грн.</div></li>
+                <li class="menu-item"><div class="item-info"><div class="item-name">Креветка темпура</div><div class="item-description">130 г </div></div><div class="item-price">320 грн.</div></li>
                 <li class="menu-item"><div class="item-info"><div class="item-name">Картопля фрі</div><div class="item-description">100 г</div></div><div class="item-price">90 грн.</div></li>
-                <li class="menu-item"><div class="item-info"><div class="item-name">Нагетси</div><div class="item-description">250 г (8 шт)</div></div><div class="item-price">150 грн.</div></li>
+                <li class="menu-item"><div class="item-info"><div class="item-name">Нагетси</div><div class="item-description">250 г </div></div><div class="item-price">150 грн.</div></li>
                 <li class="menu-item"><div class="item-info"><div class="item-name">Бульйон курячий</div><div class="item-description">300 г</div></div><div class="item-price">150 грн.</div></li>
                 <li class="menu-item"><div class="item-info"><div class="item-name">Пельмені</div><div class="item-description">250 г</div></div><div class="item-price">190 грн.</div></li>
             </ul>
@@ -178,7 +194,7 @@
         </section>
 
         <section id="bar" class="menu-section">
-            <h2 class="category-title">Міцний алкоголь (50 / 100 мл)</h2>
+            <h2 class="category-title">Міцні напої (50 / 100 мл)</h2>
             <ul class="menu-list">
                 <li class="menu-item"><div class="item-name">Самбука</div><div class="item-price">150 / 300 грн.</div></li>
                 <li class="menu-item"><div class="item-name">Абсент</div><div class="item-price">190 / 380 грн.</div></li>
@@ -216,7 +232,7 @@
                 <li class="menu-item"><div class="item-name">Мартіні (біле сухе)</div><div class="item-price">210 / 420 грн.</div></li>
             </ul>
 
-            <h2 class="category-title">Шампанське (0,75 л)</h2>
+            <h2 class="category-title">Вино ігристе (0,75 л)</h2>
             <ul class="menu-list">
                 <li class="menu-item"><div class="item-name">Асті Чинзано</div><div class="item-price">1300 грн.</div></li>
                 <li class="menu-item"><div class="item-name">Шампанське Просеко</div><div class="item-price">1500 грн.</div></li>
@@ -225,9 +241,9 @@
 
             <h2 class="category-title">Пиво</h2>
             <ul class="menu-list">
-                <li class="menu-item"><div class="item-name">Хугарден White (0,5 л)</div><div class="item-price">165 грн.</div></li>
-                <li class="menu-item"><div class="item-name">Стела світле (0,5 л)</div><div class="item-price">110 грн.</div></li>
-                <li class="menu-item"><div class="item-name">Стела Артуа (0,33 л, ж/б)</div><div class="item-price">90 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Хугарден White (0,5 л, ж/б)</div><div class="item-price">165 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Stella Artois світле (0,5 л)</div><div class="item-price">110 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Stella Artois (0,33 л, ж/б)(б/а)</div><div class="item-price">90 грн.</div></li>
             </ul>
         </section>
 
@@ -239,16 +255,16 @@
                 <li class="menu-item"><div class="item-name">Текіла Санрайз</div><div class="item-price">235 грн.</div></li>
                 <li class="menu-item"><div class="item-name">Космополітен</div><div class="item-price">230 грн.</div></li>
                 <li class="menu-item"><div class="item-name">Самбука (класична)</div><div class="item-price">205 грн.</div></li>
-                <li class="menu-item"><div class="item-name">Енергія</div><div class="item-price">255 грн.</div></li>
                 <li class="menu-item"><div class="item-name">Дайкірі</div><div class="item-price">205 грн.</div></li>
                 <li class="menu-item"><div class="item-name">Маргарита</div><div class="item-price">240 грн.</div></li>
                 <li class="menu-item"><div class="item-name">Мартіні Драй</div><div class="item-price">285 грн.</div></li>
-                <li class="menu-item"><div class="item-name">Куда Лібре</div><div class="item-price">275 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Куба Лібре</div><div class="item-price">275 грн.</div></li>
             </ul>
             <h2 class="category-title">Шоти</h2>
             <ul class="menu-list">
                 <li class="menu-item"><div class="item-name">Б-52</div><div class="item-price">225 грн.</div></li>
                 <li class="menu-item"><div class="item-name">Хіросіма</div><div class="item-price">235 грн.</div></li>
+                <li class="menu-item"><div class="item-name">Енергія</div><div class="item-price">255 грн.</div></li>
             </ul>
             <h2 class="category-title">Безалкогольні коктейлі</h2>
             <ul class="menu-list">
